@@ -1,0 +1,28 @@
+.taskCard {
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.taskCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08) !important;
+}
+
+.actionBtnEdit {
+    transition: all 0.2s ease;
+}
+
+.actionBtnEdit:hover {
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+.actionBtnDelete {
+    transition: all 0.2s ease;
+}
+
+.actionBtnDelete:hover {
+    background-color: var(--bs-danger);
+    color: white;
+}
