@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# To-Do List (Frontend)
 
-## Getting Started
+Este é o frontend da aplicação de lista de tarefas (To-Do List), construído com as tecnologias mais modernas do ecossistema React.
 
-First, run the development server:
+## 🚀 Como rodar o projeto localmente
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Para rodar este projeto na sua máquina, certifique-se de ter o [Node.js](https://nodejs.org/) instalado.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Instale as dependências**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   Abra o terminal na pasta do projeto e execute:
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Inicie o servidor de desenvolvimento**
 
-## Learn More
+   Após a instalação das dependências, inicie a aplicação com o comando:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Acesse no navegador**
+   
+   A aplicação estará rodando na porta **4000**. Acesse [http://localhost:4000](http://localhost:4000) no seu navegador.
+   *(Nota: Se houver variáveis de ambiente necessárias, certifique-se de configurar um `.env` antes).*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🏗 Arquitetura do Projeto
 
-## Deploy on Vercel
+A arquitetura do frontend foi projetada visando modularidade, escalabilidade e separação de responsabilidades. A aplicação utiliza o **Next.js** com a convenção do **App Router**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Tecnologias Principais
+- **Framework:** [Next.js (v16)](https://nextjs.org/) + [React 19](https://react.dev/)
+- **Linguagem:** TypeScript
+- **Estilização:** [Tailwind CSS](https://tailwindcss.com/) integrado com [Bootstrap](https://getbootstrap.com/) & React-Bootstrap
+- **Requisições HTTP:** [Axios](https://axios-http.com/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Estrutura de Diretórios
+
+O projeto segue a seguinte estrutura de responsabilidades:
+
+- `/app`  
+  Contém as rotas e páginas da aplicação utilizando o modelo de roteamento do Next.js (App Router). Inclui as páginas principais como `login/`, `signup/` e o `dashboard/`.
+
+- `/components`  
+  Guarda os componentes visuais e reutilizáveis do React. Em especial, a estrutura de montagem visual das tarefas:
+  - `taskColumn/`: Colunas para organizar os status das tarefas (estilo Kanban).
+  - `taskItem/`: O visual e comportamento de um item de tarefa individual.
+  - `taskModal/`: Modais para criação e edição de formulários.
+  - `authGuard/`: Componente provedor de segurança para proteger rotas autenticadas.
+
+- `/services`  
+  Camada responsável pela comunicação exclusiva com a API backend (usando o Axios). Ela isola toda a regra de negócio de rede de dentro dos componentes. 
+  - `auth.service.ts`: Autenticação (Login/Registro).
+  - `task.service.ts`: CRUD das tarefas.
+  - `user.service.ts`: Tratamento de dados informativos do usuário.
+
+- `/config` & `/hooks`  
+  - `config/`: Serve para setup de instâncias e interceptadores globais de autenticação.
+  - `hooks/`: Contém regras complexas e de estados locais que são consumíveis pelos componentes.
