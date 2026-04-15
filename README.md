@@ -6,21 +6,21 @@ Este é o frontend da aplicação de lista de tarefas (To-Do List), construído 
 
 Para rodar este projeto na sua máquina, certifique-se de ter o [Node.js](https://nodejs.org/) instalado.
 
-1. **Instale as dependências**
+**Instale as dependências**
 
    Abra o terminal na pasta do projeto e execute:
    ```bash
    npm install
    ```
 
-2. **Inicie o servidor de desenvolvimento**
+**Inicie o servidor de desenvolvimento**
 
    Após a instalação das dependências, inicie a aplicação com o comando:
    ```bash
    npm run dev
    ```
 
-3. **Acesse no navegador**
+ **Acesse no navegador**
    
    A aplicação estará rodando na porta **4000**. Acesse [http://localhost:4000](http://localhost:4000) no seu navegador.
    *(Nota: Se houver variáveis de ambiente necessárias, certifique-se de configurar um `.env` antes).*
